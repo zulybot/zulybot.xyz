@@ -7,7 +7,7 @@ const app = express();
 const MongoDBStore = require('connect-mongodb-session')(session);
 const store = new MongoDBStore({
     uri: process.env.MONGO,
-    collection: 'zulydash'
+    collection: 'czulydashboard_sessions'
 });
 
 const passport = require("passport");
@@ -41,6 +41,7 @@ passport.use(new Strategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
     callbackURL: '/api/callback',
+    prompt: 'none',
     scope: [ "identify", "guilds", "email" ],
 }, function (accessToken, refreshToken, profile, done) {
     process.nextTick(function() {

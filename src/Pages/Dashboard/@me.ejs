@@ -36,8 +36,8 @@
                             </div>
                             <div class="tile is-parent">
                                 <article class="tile is-child box">
-                                    <p class="title">0</p>
-                                    <p class="subtitle">Servidores Premium</p>
+                                    <p class="title"><%= guilds.length %></p>
+                                    <p class="subtitle">Servidores com Permissão</p>
                                 </article>
                             </div>
                             <div class="tile is-parent">
@@ -47,24 +47,28 @@
                                 </article>
                             </div>
                         </div>
-                        <% for (const guild of user.guilds) { %>
-                            <div class="card">
-                                <div class="card-content">
-                                  <div class="media">
+                        <% for (const guild of guilds) { %>
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="media">
                                     <div class="media-left">
-                                      <figure class="image is-48x48">
-                                        <img src="https://cdn.discordapp.com/icons/<%= guild.id %>/<%= guild.icon %>.png?size=2048" alt="Placeholder image">
-                                      </figure>
+                                        <figure class="image is-48x48">
+                                            <% if (guild.icon) { %>
+                                            <img class="avatar" src="https://cdn.discordapp.com/icons/<%= guild.id %>/<%= guild.icon %>.png?size=4096" alt="Guild Icon">
+                                            <% } else { %>
+                                            <img class="avatar" src="/assets/unknow.png" alt="Guild Icon">
+                                            <% } %>
+                                        </figure>
                                     </div>
                                     <div class="media-content">
-                                      <p class="title is-4"><%= guild.name %></p>
+                                        <p class="title"><%= guild.name %></p>
                                     </div>
-                                    <a href="/add" class="button is-danger">Dashboard</a>
-                                  </div>
+                                    <a href="/dashboard/@me/manage/<%= guild.id %>" class="button is-danger">Dashboard</a>
                                 </div>
-                              </div>
-                              <br>
-                              <% } %>
+                            </div>
+                        </div>
+                        <br>
+                        <% } %>
                     </section>
                 </div>
             </div>
@@ -73,7 +77,9 @@
         </div>
         </div>
     </center>
-    <script async type="text/javascript" src="../js/bulma.js"></script>
+    <footer class="footer">
+        <%- include('../Partials/footer'); %>
+    </footer>
 </body>
 
 </html>

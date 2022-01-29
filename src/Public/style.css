@@ -5,6 +5,9 @@ html {
 .navbar {
     background-color: #FFC0CB;
 }
+.navbar-item {
+    background-color: #FFC0CB;
+}
 .avatar {
     border-radius: 50%;
 }
