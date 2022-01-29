@@ -4,6 +4,8 @@ const session = require('express-session');
 const ejs = require('ejs');
 const app = express();
 
+const bodyParser = require('body-parser');
+
 const MongoDBStore = require('connect-mongodb-session')(session);
 const store = new MongoDBStore({
     uri: process.env.MONGO,
@@ -20,6 +22,8 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, "/Pages"));
 app.use(express.static(path.join(__dirname, "/Public")))
 app.use(passport.initialize());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(session({
     secret: process.env.SECRET,

@@ -33,7 +33,7 @@ router.get('/@me/manage/:id', async function(req,res) {
         return res.redirect('/login');
     }
 
-    const guild = global.bot.guilds.get(req.params.id);
+    const guild = await global.bot.guilds.get(req.params.id);
     if (!guild) {
         return res.redirect('/add');
     }
@@ -44,4 +44,39 @@ router.get('/@me/manage/:id', async function(req,res) {
         user: req.session.passport?.user || null,
     });
 })
+
+router.get('/@me/manage/:id/mod', async function(req,res) {
+    if (!req.session.passport) {
+        return res.redirect('/login');
+    }
+
+    const guild = await global.bot.guilds.get(req.params.id);
+    if (!guild) {
+        return res.redirect('/add');
+    }
+
+    res.render("Dashboard/manageMod", {
+        bot: global.bot,
+        guild,
+        user: req.session.passport?.user || null,
+    });
+});
+
+router.get('/@me/manage/:id/premium', async function(req,res) {
+    if (!req.session.passport) {
+        return res.redirect('/login');
+    }
+
+    const guild = await global.bot.guilds.get(req.params.id);
+    if (!guild) {
+        return res.redirect('/add');
+    }
+
+    res.render("Dashboard/managePremium", {
+        bot: global.bot,
+        guild,
+        user: req.session.passport?.user || null,
+    });
+});
+
 module.exports = router;
