@@ -1,0 +1,23 @@
+{
+  "name": "zulybot.xyz_v2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node --optimize_for_size ."
+  },
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "colors": "^1.4.0",
+    "connect-mongodb-session": "^3.1.1",
+    "dotenv": "^14.3.2",
+    "ejs": "^3.1.6",
+    "eris": "^0.16.1",
+    "express": "^4.17.2",
+    "express-session": "^1.17.2",
+    "mongoose": "^6.1.8",
+    "passport": "^0.5.2",
+    "passport-discord": "^0.1.4",
+    "path": "^0.12.7"
+  }
+}

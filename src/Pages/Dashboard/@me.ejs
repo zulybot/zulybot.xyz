@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../Partials/head'); %>
+</head>
+<nav>
+    <%- include('../Partials/navbar'); %>
+</nav>
+
+<body>
+    <br>
+    <center>
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <section class="hero is-danger welcome is-small">
+                        <div class="hero-body">
+                            <div class="container">
+                                <h1 class="title">
+                                    Olá, <%= user.username %>.
+                                </h1>
+                                <h2 class="subtitle">
+                                    Espero que esteja tendo um bom dia!
+                                </h2>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="info-tiles">
+                        <div class="tile is-ancestor has-text-centered">
+                            <div class="tile is-parent">
+                                <article class="tile is-child box">
+                                    <p class="title"><%= user.guilds.length %></p>
+                                    <p class="subtitle">Servidores</p>
+                                </article>
+                            </div>
+                            <div class="tile is-parent">
+                                <article class="tile is-child box">
+                                    <p class="title">0</p>
+                                    <p class="subtitle">Servidores Premium</p>
+                                </article>
+                            </div>
+                            <div class="tile is-parent">
+                                <article class="tile is-child box">
+                                    <p class="title"><%= userMoney %></p>
+                                    <p class="subtitle">Ryos</p>
+                                </article>
+                            </div>
+                        </div>
+                        <% for (const guild of user.guilds) { %>
+                            <div class="card">
+                                <div class="card-content">
+                                  <div class="media">
+                                    <div class="media-left">
+                                      <figure class="image is-48x48">
+                                        <img src="https://cdn.discordapp.com/icons/<%= guild.id %>/<%= guild.icon %>.png?size=2048" alt="Placeholder image">
+                                      </figure>
+                                    </div>
+                                    <div class="media-content">
+                                      <p class="title is-4"><%= guild.name %></p>
+                                    </div>
+                                    <a href="/add" class="button is-danger">Dashboard</a>
+                                  </div>
+                                </div>
+                              </div>
+                              <br>
+                              <% } %>
+                    </section>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+    </center>
+    <script async type="text/javascript" src="../js/bulma.js"></script>
+</body>
+
+</html>

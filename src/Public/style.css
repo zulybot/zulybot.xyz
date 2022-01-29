@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+html {
+    background-color: #f3f3f3f6;
+}
+.navbar {
+    background-color: #FFC0CB;
+}
+.avatar {
+    border-radius: 50%;
+}
+#jumbotron .bouncy-arrow {
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    font-size: 3.5em;
+    animation: arrow-bounce 2s infinite;
+    overflow: hidden
+}
+.container {
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <%- include('./Partials/head'); %>
+</head>
+<nav>
+    <%- include('./Partials/navbar'); %>
+</nav>
+
+<body>
+    <div class="hero-body">
+        <div class="container has-text-centered">
+
+            <div class="columns">
+                <div class="column is-6 is-offset-3">
+                    <h1 class="title is-1">
+                        <%= bot.user.username %>
+                    </h1>
+                    <h2 class="subtitle is-4">
+                        Olá! Sou a zuly, um bot multifuncional para o discord, com todas as funcionalidades que você precisa!
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+
+    <section class="bg-light">
+        <div class="container section">
+            <div class="content has-text-centered">
+                <h1>Funcionalidades</h1>
+            </div>
+            <br>
+            <nav class="columns">
+                <div class="column has-text-centered">
+                    <article class="media">
+                        <figure class="media-left">
+                            <span class="icon has-text-danger">
+                                <i class="fas fa-hammer fa-3x"></i>
+                            </span>
+                        </figure>
+                        <div class="media-content">
+                            <div class="content">
+                                <h4 class="heading"><strong>Moderação</strong></h4>
+                                <p>A <%= bot.user.username %> conta com um sistema de moderação, com recursos uteis, como por exemplo: logs de mensagens, banimentos, mutações, etc.</p>
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="column has-text-centered">
+                    <article class="media">
+                        <figure class="media-left">
+                            <span class="icon has-text-danger">
+                                <i class="fas fa-music fa-3x"></i>
+                            </span>
+                        </figure>
+                        <div class="media-content">
+                            <div class="content">
+                                <h4 class="heading"><strong>Música</strong></h4>
+                                <p>A <%= bot.user.username %> conta com um sistema de música, com recursos uteis, como por exemplo: playlists, filtros, etc.</p>
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="column has-text-centered">
+                    <article class="media">
+                        <figure class="media-left">
+                            <span class="icon has-text-danger">
+                                <i class="fas fa-gifts fa-3x"></i>
+                            </span>
+                        </figure>
+                        <div class="media-content">
+                            <div class="content">
+                                <h4 class="heading"><strong>Diversão</strong></h4>
+                                <p>A <%= bot.user.username %> conta com diversas funcionalidades de diversão, com recursos uteis, como por exemplo: memes, gifs, etc.</p>
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </nav>
+        </div>
+    </section>
+
+    <section class="bg-white">
+        <div class="container section">
+            <div class="columns is-vcentered">
+                <div class="column">
+                    <figure class="image">
+                        <img src="assets/music.png" alt="">
+                    </figure>
+                </div>
+                <div class="column ">
+                    <div class="content">
+                        <h1>Me adicione!</h1>
+                        <p>E mude seu servidor de discord para todo o sempre!</p>
+
+                        <a href="/add" class="button is-danger">Adicionar</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-light">
+        <div class="container section">
+            <div class="content has-text-centered">
+                <h1>Tá, mas o que mais posso fazer com ela?</h1>
+            </div>
+
+            <div class="columns">
+                <div class="column is-half">
+                    <div class="title is-4">Comandos Personalizados</div>
+                    <p>Você precisa de um comando para, mostrar o ip do seu servidor de minecraft? Para mostrar um link para os usuários votarem em seu bot/servidor? Isso é possível com a <%= bot.user.username %>, basta usar o comando /custom-command e ser feliz</p>
+                </div>
+
+                <div class="column is-half">
+                    <div class="title is-4">Sorteios</div>
+                    <p>Você precisa sortear algo? Um prêmio? Isso é possível com a <%= bot.user.username %>, para isso é só você usar o comando /giveaway-start e ser feliz!</p>
+                </div>
+            </div>
+
+            <div class="columns">
+                <div class="column is-half">
+                    <div class="title is-4">Logs</div>
+                    <p>Você precisa saber o que seu membro editou para saber se a acusação contra ele é real? Precisa saber quem baniu uma pessoa errada? Com o sistema de logs da zuly isso é possível!</p>
+                </div>
+
+                <div class="column is-half">
+                    <div class="title is-4">Configurações</div>
+                    <p>A <%= bot.user.username %> possuí varios outros sistemas que você pode configurar na dashboard, para isso basta <a href="/login">logar</a> e configurar :)</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section id="stn-download">
+        <div class="container section has-text-centered">
+            <div class="columns">
+                <div class="column is-half is-offset-one-quarter">
+
+                    <h1 class="title is-2">Me adicione!</h1>
+                    <p>E mude seu servidor de discord para todo o sempre!</p>
+
+                    <br>
+
+                    <a href="/add" class="button is-danger">Adicionar</a>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+<footer class="footer">
+    <%- include('./Partials/footer'); %>
+</footer>
+</body>
+
+</html>
