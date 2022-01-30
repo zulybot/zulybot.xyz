@@ -5,8 +5,8 @@ html {
 }
 
 .select {
-    border-radius: 100px;
-    background-color: #ffcbdb;
+    border:0;
+    background-color: #FFC0CB;
 }
 
 .navbar {
