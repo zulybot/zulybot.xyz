@@ -4,9 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node --optimize_for_size --expose-gc --gc-interval=1 .",
+    "test": "node --optimize_for_size --expose-gc --gc-interval=1 .",
     "lint": "eslint --fix --ext .js --ignore-path .gitignore .",
-    "forever": "npx forever -c \"--optimize_for_size --expose-gc --gc-interval=1\" index.js"
+    "start": "npx forever -c \"--optimize_for_size --expose-gc --gc-interval=1\" index.js"
   },
   "dependencies": {
     "body-parser": "^1.19.1",

