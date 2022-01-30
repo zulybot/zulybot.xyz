@@ -11,7 +11,10 @@ const store = MongoStore.create({
 	mongoUrl: process.env.MONGO,
 	dbName: 'sessions_zuly',
 	ttl: 14 * 24 * 60 * 60,
-	autoRemove: 'disabled'
+	autoRemove: 'disabled',
+	crypto: {
+		secret: process.env.SECRET
+	}
 });
 
 const passport = require('passport');
