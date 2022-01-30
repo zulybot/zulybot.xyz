@@ -23,7 +23,8 @@ router.get('/login', async function(req, res) {
 router.get('/logout', async function(req, res) {
 	await global.bot.middleWare(req);
 
-	req.session.destroy(() => {
+	req.session.destroy((err) => {
+		console.log(err);
 		res.redirect('/');
 	});
 });

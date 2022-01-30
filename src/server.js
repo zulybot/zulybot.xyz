@@ -6,10 +6,15 @@ const app = express();
 
 const bodyParser = require('body-parser');
 
-const MongoDBStore = require('connect-mongodb-session')(session);
-const store = new MongoDBStore({
-	uri: process.env.MONGO,
-	collection: 'zuly_sessions'
+const MongoStore = require('connect-mongo');
+const store = MongoStore.create({
+	mongoUrl: process.env.MONGO,
+	dbName: 'sessions_zuly',
+	ttl: 14 * 24 * 60 * 60,
+	autoRemove: 'disabled',
+	crypto: {
+		secret: process.env.SECRET
+	}
 });
 
 const passport = require('passport');
@@ -28,12 +33,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(session({
 	secret: process.env.SECRET,
-	cookie: {
-		maxAge: 1000 * 60 * 60 * 24 * 7
-	},
+	saveUninitialized: false,
+	resave: false,
 	store: store,
-	resave: true,
-	saveUninitialized: true
 }));
 
 passport.serializeUser((user, done) => {
