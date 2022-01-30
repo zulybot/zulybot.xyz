@@ -20,6 +20,7 @@ const path = require('path');
 app.engine('html', ejs.renderFile);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, "/Pages"));
+app.use(express.json());
 app.use(express.static(path.join(__dirname, "/Public")))
 app.use(passport.initialize());
 app.use(bodyParser.json());

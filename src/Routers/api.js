@@ -12,9 +12,14 @@ router.get("/guild/:id", async(req, res) => {
     res.json(guildInfo)
 });
 
-router.post("/dashboard/fnshop", async(req, res) => {
-    console.log(req.body);
-    res.sendStatus(200);
+router.post("/dashboard/:id/lang", async(req, res) => {
+    const guildDB = await global.db.get(`idioma-${req.params.id}`) || 'pt_br';
+    const newLang = req.body.langs;
+    if (newLang === 'none') {
+        await global.db.set(`idioma-${req.params.id}`, 'pt_br');
+    }
+    await global.db.set(`idioma-${req.params.id}`, newLang);
+    res.status(200).redirect(`/dashboard/@me/manage/${req.params.id}`);
 });
 
 router.get("/callback", passport.authenticate("discord", { failureRedirect: "/" }), async function(req, res) {

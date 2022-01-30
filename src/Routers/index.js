@@ -3,8 +3,10 @@ const passport = require('passport');
 const router = express.Router();
 
 router.get("/", async(req, res) => {
+    const guilds = global.bot.guilds
     res.render("index", {
         bot: global.bot,
+        guilds: guilds,
         user: req.session.passport?.user || null,
     });
 });

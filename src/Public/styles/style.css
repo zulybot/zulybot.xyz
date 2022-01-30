@@ -31,16 +31,13 @@ html {
     margin-right: auto;
 }
 
-/* The alert message box */
 .alert {
     padding: 20px;
     background-color: #f44336;
-    /* Red */
     color: white;
     margin-bottom: 15px;
 }
 
-/* The close button */
 .closebtn {
     margin-left: 15px;
     color: white;
@@ -52,7 +49,21 @@ html {
     transition: 0.3s;
 }
 
-/* When moving the mouse over the close button */
 .closebtn:hover {
     color: black;
+}
+
+.guild-icons-horizontal {
+    width: 100vw;
+    overflow: hidden
+}
+
+.guild-icons-horizontal .guilds-wrapper {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 9000px;
+    transform: translateX(-50%);
+    text-align: center;
+    margin-left: 50%;
+    padding: 32px
 }

@@ -26,6 +26,7 @@
                             </div>
                         </div>
                     </section>
+                    <br>
                     <section class="info-tiles">
                         <div class="tile is-ancestor has-text-centered">
                             <div class="tile is-parent">
@@ -54,35 +55,30 @@
                                 <li><a href="/dashboard/@me/manage/<%= guild.id %>/premium">Premium</a></li>
                             </ul>
                         </div>
-                        <!-- Choose one of the server channels to set the fortnite shop -->
-                        <div class="field">
-                            <label class="label">Escolha um canal para setar o shop do Fortnite</label>
-                            <div class="control">
-                                <div class="select">
-                                    <select id="shopChannel">
-                                        <option value="0">Nenhum</option>
-                                        <% guild.channels.forEach(channel => { %>
-                                        <option onchange="fortniteShop(this.value)" value="<%= channel.id %>"><%= channel.name %></option>
-                                        <% }); %>
-                                    </select>
-                                </div>
-                            </div>
-                            <br>
-                            <!-- Choose one of the server channels to set the logs -->
+                        <form action="/api/dashboard/<%= guild.id %>/lang" method="post">
                             <div class="field">
-                                <label class="label">Escolha um canal para setar os logs</label>
+                                <label class="label">Idioma</label>
                                 <div class="control">
                                     <div class="select">
-                                        <select id="logsChannel">
-                                            <option value="0">Nenhum</option>
-                                            <% guild.channels.forEach(channel => { %>
-                                            <option onchange="logsChannel(this.value)" value="<%= channel.id %>"><%= channel.name %></option>
-                                            <% }); %>
+                                        <select name="langs" id="langs">
+                                            <option value="none">Padrão</option>
+                                            <option value="pt_br">Português</option>
+                                            <option value="fr_fr">Francês</option>
+                                            <option value="en_us">Inglês</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+
+                            <div class="field is-grouped">
+                                <div class="control">
+                                    <button type="submit" class="button is-link">Salvar</button>
+                                </div>
+                                <div class="control">
+                                    <button onclick="history.back()" class="button is-link is-light">Cancelar</button>
+                                </div>
+                            </div>
+                        </form>
                     </section>
                 </div>
             </div>
