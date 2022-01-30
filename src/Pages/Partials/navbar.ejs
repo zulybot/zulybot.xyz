@@ -166,11 +166,11 @@
         <div class="navbar-item">
             <div class="buttons">
                 <% if (user) { %>
-                <a href="/dashboard" class="button is-warning">
+                <a href="/dashboard" class="button is-login">
                     <img class="avatar" src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>.png?size=4096" width="28" height="28"><strong> <%= user.username %>#<%= user.discriminator %></strong>
                 </a>
                 <% } else { %>
-                <a href="/login" class="button is-warning">
+                <a href="/login" class="button is-login">
                     <strong>Login</strong>
                 </a>
                 <% } %>

@@ -1889,6 +1889,12 @@ fieldset[disabled] .button.is-warning.is-inverted.is-outlined {
     color: #fff
 }
 
+.button.is-login {
+    background-color: #FF6961;
+    border-color: transparent;
+    color: #fff
+}
+
 .button.is-danger.is-hovered,
 .button.is-danger:hover {
     background-color: #f03a5f;
