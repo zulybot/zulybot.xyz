@@ -27,7 +27,7 @@
                         </div>
                     </section>
                     <br>
-                    <section class="info-tiles">
+                    <center class="info-tiles">
                         <div class="tile is-ancestor has-text-centered">
                             <div class="tile is-parent">
                                 <article class="tile is-child box">
@@ -50,9 +50,9 @@
                         </div>
                         <div class="tabs">
                             <ul>
-                                <li class="is-active"><a href="/dashboard/@me/manage/<%= guild.id %>">Geral</a></li>
-                                <li><a href="/dashboard/@me/manage/<%= guild.id %>/mod">Automod</a></li>
-                                <li><a href="/dashboard/@me/manage/<%= guild.id %>/premium">Premium</a></li>
+                                <li class="is-active"><a href="/dashboard/<%= guild.id %>">Geral</a></li>
+                                <li><a href="/dashboard/<%= guild.id %>/mod">Automod</a></li>
+                                <li><a href="/dashboard/<%= guild.id %>/premium">Premium</a></li>
                             </ul>
                         </div>
                         <form action="/api/dashboard/<%= guild.id %>/lang" method="post">
@@ -61,7 +61,7 @@
                                 <div class="control">
                                     <div class="select">
                                         <select name="langs" id="langs">
-                                            <option value="none">Padrão</option>
+                                            <option value="en_us">Padrão</option>
                                             <option value="pt_br">Português</option>
                                             <option value="fr_fr">Francês</option>
                                             <option value="en_us">Inglês</option>
@@ -69,17 +69,16 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="field is-grouped">
                                 <div class="control">
                                     <button type="submit" class="button is-link">Salvar</button>
                                 </div>
                                 <div class="control">
-                                    <button onclick="history.back()" class="button is-link is-light">Cancelar</button>
+                                    <button onclick="window.history.back()" class="button is-link is-light">Cancelar</button>
                                 </div>
                             </div>
                         </form>
-                    </section>
+                        </section>
                 </div>
             </div>
         </div>

@@ -50,36 +50,45 @@
                         </div>
                         <div class="tabs">
                             <ul>
-                              <li><a href="/dashboard/@me/manage/<%= guild.id %>">Geral</a></li>
-                              <li class="is-active"><a href="/dashboard/@me/manage/<%= guild.id %>/mod">Automod</a></li>
-                              <li><a href="/dashboard/@me/manage/<%= guild.id %>/premium">Premium</a></li>
+                              <li><a href="/dashboard/<%= guild.id %>">Geral</a></li>
+                              <li class="is-active"><a href="/dashboard/<%= guild.id %>/mod">Automod</a></li>
+                              <li><a href="/dashboard/<%= guild.id %>/premium">Premium</a></li>
                             </ul>
                           </div>
                           <!-- Select which automod functions you want to work with checkbox. -->
-                            <br>
-                            <div class="field">
-                                <label class="label">Automod</label>
-                                <div class="control">
-                                    <label class="checkbox">
-                                        <input type="checkbox" name="automod" value="automod" checked>
-                                        Automod Scam
-                                    </label>
-                                    <br>
-                                    <label class="checkbox">
-                                        <input type="checkbox" name="automod" value="automod-warn" checked>
-                                        Automod Invites
-                                    </label>
-                                    <br>
-                                    <label class="checkbox">
-                                        <input type="checkbox" name="automod" value="automod-kick" checked>
-                                        Automod NSFW
-                                    </label>
-                                    <br>
-                                    <label class="checkbox">
-                                        <input type="checkbox" name="automod" value="automod-ban" checked>
-                                        Automod Spam
-                                    </label>
-                                </div>
+                            <form action="/api/dashboard/<%= guild.id %>/mod" method="post">
+                                <div class="field">
+                                    <label class="label">Automod</label>
+                                    <div class="control">
+                                        <label class="checkbox">
+                                            <input type="checkbox" name="automod" value="automod-scam">
+                                            Automod Scam
+                                        </label>
+                                        <br>
+                                        <label class="checkbox">
+                                            <input type="checkbox" name="automod" value="automod-invites">
+                                            Automod Invites
+                                        </label>
+                                        <br>
+                                        <label class="checkbox">
+                                            <input type="checkbox" name="automod" value="automod-nsfw">
+                                            Automod NSFW
+                                        </label>
+                                        <br>
+                                        <label class="checkbox">
+                                            <input type="checkbox" name="automod" value="automod-spam">
+                                            Automod Spam
+                                        </label>
+                                        <div class="field is-grouped">
+                                            <div class="control">
+                                                <button type="submit" class="button is-link">Salvar</button>
+                                            </div>
+                                            <div class="control">
+                                                <button onclick="window.history.back()" class="button is-link is-light">Cancelar</button>
+                                            </div>
+                                        </div>
+                                    </div> 
+                            </form>
                     </section>
                 </div>
             </div>

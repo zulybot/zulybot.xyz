@@ -4,6 +4,11 @@ html {
     background-color: #f3f3f3f6;
 }
 
+.select {
+    border-radius: 100px;
+    background-color: #ffcbdb;
+}
+
 .navbar {
     background-color: #FFC0CB;
 }

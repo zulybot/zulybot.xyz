@@ -50,11 +50,31 @@
                         </div>
                         <div class="tabs">
                             <ul>
-                              <li><a href="/dashboard/@me/manage/<%= guild.id %>">Geral</a></li>
-                              <li><a href="/dashboard/@me/manage/<%= guild.id %>/mod">Automod</a></li>
-                              <li class="is-active"><a href="/dashboard/@me/manage/<%= guild.id %>/premium">Premium</a></li>
+                              <li><a href="/dashboard/<%= guild.id %>">Geral</a></li>
+                              <li><a href="/dashboard/<%= guild.id %>/mod">Automod</a></li>
+                              <li class="is-active"><a href="/dashboard/<%= guild.id %>/premium">Premium</a></li>
                             </ul>
                           </div>
+                          <h1 class="title is-3">
+                            Plano Atual: <%= premium.plan %>
+                        </h1>
+                          <form action="/api/dashboard/<%= guild.id %>/premium" method="post">
+                            <div class="field">
+                                <label for="keypremium" class="label">Key Premium</label>
+                                <div class="control">
+                                  <input class="input" id="keypremium" name="keypremium" type="text" placeholder="Insira sua key aqui!" autocomplete="off">
+                                </div>
+                              </div>
+
+                              <div class="field is-grouped">
+                                <div class="control">
+                                    <button type="submit" class="button is-link">Ativar</button>
+                                </div>
+                                <div class="control">
+                                    <button onclick="window.history.back()" class="button is-link is-light">Cancelar</button>
+                                </div>
+                            </div>
+                          </form>
                     </section>
                 </div>
             </div>

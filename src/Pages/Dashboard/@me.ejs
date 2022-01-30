@@ -21,7 +21,7 @@
                                     Olá, <%= user.username %>.
                                 </h1>
                                 <h2 class="subtitle">
-                                    Espero que esteja tendo um bom dia!
+                                    Espero que esteja tendo um bom dia! <a href="/logout">[Deslogar]</a>
                                 </h2>
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                                     <div class="media-content">
                                         <p class="title"><%= guild.name %></p>
                                     </div>
-                                    <a href="/dashboard/@me/manage/<%= guild.id %>" class="button is-danger">Dashboard</a>
+                                    <a href="/dashboard/<%= guild.id %>" class="button is-danger">Dashboard</a>
                                 </div>
                             </div>
                         </div>
