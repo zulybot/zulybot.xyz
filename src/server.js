@@ -48,7 +48,8 @@ passport.use(new Strategy({
     prompt: 'none',
     scope: [ "identify", "guilds", "email" ],
 }, function (accessToken, refreshToken, profile, done) {
-    process.nextTick(function() {
+    process.nextTick(async function() {
+        await global.db.set(`userinfo-${profile.id}`, profile);
         return done(null, profile);
     });
 }))

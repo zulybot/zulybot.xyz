@@ -10,16 +10,14 @@ router.get("/@me", async(req, res) => {
     if (!req.session.passport) {
         return res.redirect('/login');
     }
-
     const guilds = req.session.passport.user.guilds;
     const guildArray = [];
     guilds.forEach(async (guild) => {
         if (guild.permissions & 32) {
             guildArray.push(guild);
         }
-    })
+    });
     const userRyos = await global.db.get(`ryos-${req.session.passport.user.id}`) || 0;
-
     res.render("Dashboard/@me", {
         bot: global.bot,
         guilds: guildArray,

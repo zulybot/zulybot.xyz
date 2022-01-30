@@ -12,6 +12,11 @@ router.get("/guild/:id", async(req, res) => {
     res.json(guildInfo)
 });
 
+router.post("/dashboard/fnshop", async(req, res) => {
+    console.log(req.body);
+    res.sendStatus(200);
+});
+
 router.get("/callback", passport.authenticate("discord", { failureRedirect: "/" }), async function(req, res) {
     if (!req.user.id || !req.user.guilds) {
         res.redirect("/");

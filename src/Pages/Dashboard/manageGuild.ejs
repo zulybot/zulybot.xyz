@@ -49,16 +49,46 @@
                         </div>
                         <div class="tabs">
                             <ul>
-                              <li class="is-active"><a href="/dashboard/@me/manage/<%= guild.id %>">Geral</a></li>
-                              <li><a href="/dashboard/@me/manage/<%= guild.id %>/mod">Automod</a></li>
-                              <li><a href="/dashboard/@me/manage/<%= guild.id %>/premium">Premium</a></li>
+                                <li class="is-active"><a href="/dashboard/@me/manage/<%= guild.id %>">Geral</a></li>
+                                <li><a href="/dashboard/@me/manage/<%= guild.id %>/mod">Automod</a></li>
+                                <li><a href="/dashboard/@me/manage/<%= guild.id %>/premium">Premium</a></li>
                             </ul>
-                          </div>
+                        </div>
+                        <!-- Choose one of the server channels to set the fortnite shop -->
+                        <div class="field">
+                            <label class="label">Escolha um canal para setar o shop do Fortnite</label>
+                            <div class="control">
+                                <div class="select">
+                                    <select id="shopChannel">
+                                        <option value="0">Nenhum</option>
+                                        <% guild.channels.forEach(channel => { %>
+                                        <option onchange="fortniteShop(this.value)" value="<%= channel.id %>"><%= channel.name %></option>
+                                        <% }); %>
+                                    </select>
+                                </div>
+                            </div>
+                            <br>
+                            <!-- Choose one of the server channels to set the logs -->
+                            <div class="field">
+                                <label class="label">Escolha um canal para setar os logs</label>
+                                <div class="control">
+                                    <div class="select">
+                                        <select id="logsChannel">
+                                            <option value="0">Nenhum</option>
+                                            <% guild.channels.forEach(channel => { %>
+                                            <option onchange="logsChannel(this.value)" value="<%= channel.id %>"><%= channel.name %></option>
+                                            <% }); %>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </section>
                 </div>
             </div>
         </div>
     </center>
+    <br>
     <footer class="footer">
         <%- include('../Partials/footer'); %>
     </footer>

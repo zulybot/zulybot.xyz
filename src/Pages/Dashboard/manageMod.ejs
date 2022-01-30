@@ -54,11 +54,37 @@
                               <li><a href="/dashboard/@me/manage/<%= guild.id %>/premium">Premium</a></li>
                             </ul>
                           </div>
+                          <!-- Select which automod functions you want to work with checkbox. -->
+                            <br>
+                            <div class="field">
+                                <label class="label">Automod</label>
+                                <div class="control">
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="automod" value="automod" checked>
+                                        Automod Scam
+                                    </label>
+                                    <br>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="automod" value="automod-warn" checked>
+                                        Automod Invites
+                                    </label>
+                                    <br>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="automod" value="automod-kick" checked>
+                                        Automod NSFW
+                                    </label>
+                                    <br>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="automod" value="automod-ban" checked>
+                                        Automod Spam
+                                    </label>
+                                </div>
                     </section>
                 </div>
             </div>
         </div>
     </center>
+    <br>
     <footer class="footer">
         <%- include('../Partials/footer'); %>
     </footer>
