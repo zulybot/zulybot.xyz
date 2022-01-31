@@ -34,7 +34,7 @@ router.get('/admin', async (req, res) => {
 					totalRam: (process.memoryUsage().rss / 1024 / 1024).toFixed(0) + 'mb',
 					user: req.session.passport?.user || null,
 				});
-			}, 5000);
+			}, 2000);
 		}
 	});
 });

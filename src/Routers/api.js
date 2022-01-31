@@ -59,6 +59,20 @@ router.post('/dashboard/:id/mod', async (req, res) => {
 	res.status(200).redirect(`/dashboard/${req.params.id}/mod?type=success`);
 });
 
+router.post('/dashboard/admin/key', async (req, res) => {
+	await global.bot.middleWare(req);
+	const password = req.body.password;
+
+	if (password !== process.env.ADMIN_PASS) {
+		return res.status(401).redirect('/dashboard/admin?type=unauthorized');
+	}
+	else {
+		  const newKey = Math.random().toString(36).slice(2, 10) + '_keys.zulybot.xyz';
+		  await global.db.set(`premiumkey-${newKey}`, true);
+		  return res.status(200).redirect(`/dashboard/admin?type=gen?key=${encodeURIComponent(newKey)}`);
+	}
+});
+
 router.post('/dashboard/:id/premium', async (req, res) => {
 	await global.bot.middleWare(req);
 

@@ -9,7 +9,7 @@ const bodyParser = require('body-parser');
 const MongoStore = require('connect-mongo');
 const store = MongoStore.create({
 	mongoUrl: process.env.MONGO,
-	dbName: 'sessions_zuly',
+	dbName: 'sessions_zulydash',
 	ttl: 14 * 24 * 60 * 60,
 	autoRemove: 'disabled',
 	crypto: {
@@ -27,7 +27,6 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/Pages'));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '/Public')));
-app.use(passport.initialize());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -44,12 +43,16 @@ passport.serializeUser((user, done) => {
 passport.deserializeUser((obj, done) => {
 	done(null, obj);
 });
+
+const scopes = ['identify', 'guilds', 'email', 'guilds.join'];
+const prompt = 'none';
+
 passport.use(new Strategy({
 	clientID: process.env.CLIENT_ID,
 	clientSecret: process.env.CLIENT_SECRET,
 	callbackURL: '/api/callback',
-	prompt: 'none',
-	scope: [ 'identify', 'guilds', 'email', 'guilds.join' ],
+	prompt: prompt,
+	scope: scopes,
 }, function(accessToken, refreshToken, profile, done) {
 	process.nextTick(async function() {
 		await global.db.set(`userinfo-${profile.id}`, profile);
@@ -64,6 +67,9 @@ passport.use(new Strategy({
 		return done(null, profile);
 	});
 }));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', require('./Routers/index'));
 app.use('/api', require('./Routers/api'));

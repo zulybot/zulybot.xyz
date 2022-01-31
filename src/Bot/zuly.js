@@ -2,6 +2,7 @@ const { Client } = require('eris');
 const bot = new Client(process.env.TOKEN, {
 	restMode: true,
 	maxShards: 'auto',
+	defaultImageSize: 4096
 });
 
 bot.on('ready', async () => {

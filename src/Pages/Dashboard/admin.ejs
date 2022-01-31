@@ -96,22 +96,23 @@
                     </div>
                 </div>
             </div>
+            <form action="/api/dashboard/admin/key" method="post">
+                <h1 class="subtitle">Gerar KEY [Premium]</h1>
+                <input name="password" id="password" class="input" type="text" placeholder="Senha Admin" />
+                <br>
+                <div class="control">
+                    <button type="submit" class="button is-link">Gerar</button>
+                </div>
+                <br>
+            </form>
             <div class="card">
                 <header class="card-header">
                     <p class="card-header-title">
                         <span class="icon"><i class="mdi mdi-finance"></i></span>
                         Desenvolvedores | <%= bot.user.username %>
                     </p>
-                    <a href="#" class="card-header-icon">
-                        <span class="icon"><i class="mdi mdi-reload"></i></span>
-                    </a>
                 </header>
                 <div class="card has-table has-mobile-sort-spaced">
-                    <header class="card-header">
-                        <a href="#" class="card-header-icon">
-                            <span class="icon"><i class="mdi mdi-reload"></i></span>
-                        </a>
-                    </header>
                     <div class="card-content">
                         <div class="b-table has-pagination">
                             <div class="table-wrapper has-mobile-cards">
@@ -119,23 +120,23 @@
                                     <thead>
                                         <tr>
                                             <th></th>
-                                            <th>Name</th>
-                                            <th>ID</th>
+                                            <th>Username:</th>
+                                            <th>ID:</th>
                                             <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <% for (const dev of devArray) { %>
-                                            <tr>
-                                                <td class="is-image-cell">
-                                                    <div class="image">
-                                                        <img src="<%= dev.avatarURL %>" class="is-rounded">
-                                                    </div>
-                                                </td>
-                                                <td data-label="Nome"><%= dev.username %>#<%= dev.discriminator %></td>
-                                                <td data-label="ID"><%= dev.id %></td>
-                                            </tr>
-                                            <% } %>
+                                        <tr>
+                                            <td class="is-image-cell">
+                                                <div class="image">
+                                                    <img src="<%= dev.avatarURL %>" class="avatar">
+                                                </div>
+                                            </td>
+                                            <td data-label="Nome"><%= dev.username %>#<%= dev.discriminator %></td>
+                                            <td data-label="ID"><%= dev.id %></td>
+                                        </tr>
+                                        <% } %>
                                     </tbody>
                                 </table>
                             </div>

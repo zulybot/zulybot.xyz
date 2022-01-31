@@ -48,3 +48,46 @@ else if (tipo === 'invalidkey') {
 	};
 	toastr.error('A Key premium inserida não é valida!', 'Erro!');
 }
+else if (tipo === 'unauthorized') {
+	toastr.options = {
+		'closeButton': true,
+		'debug': false,
+		'newestOnTop': false,
+		'progressBar': true,
+		'positionClass': 'toast-top-right',
+		'preventDuplicates': false,
+		'onclick': null,
+		'showDuration': '300',
+		'hideDuration': '1000',
+		'timeOut': '5000',
+		'extendedTimeOut': '1000',
+		'showEasing': 'swing',
+		'hideEasing': 'linear',
+		'showMethod': 'fadeIn',
+		'hideMethod': 'fadeOut'
+	};
+	toastr.error('A Senha inserida está incorreta!', 'Erro!');
+}
+
+const key = getParameterByName('key');
+if (key) {
+	toastr.options = {
+		'closeButton': true,
+		'debug': false,
+		'newestOnTop': false,
+		'progressBar': true,
+		'positionClass': 'toast-top-right',
+		'preventDuplicates': false,
+		'onclick': null,
+		'showDuration': '300',
+		'hideDuration': '1000',
+		'timeOut': '5000',
+		'extendedTimeOut': '1000',
+		'showEasing': 'swing',
+		'hideEasing': 'linear',
+		'showMethod': 'fadeIn',
+		'hideMethod': 'fadeOut'
+	};
+	toastr.success('A Key premium foi gerada!', 'Sucesso!');
+	document.getElementById('password').value = key;
+}

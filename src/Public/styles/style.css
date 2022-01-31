@@ -19,6 +19,8 @@ html {
 
 .avatar {
     border-radius: 50%;
+    max-width: 100px;
+    max-height: 100px;
 }
 
 #jumbotron .bouncy-arrow {
