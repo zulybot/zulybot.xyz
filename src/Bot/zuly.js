@@ -6,9 +6,13 @@ const bot = new Client(process.env.TOKEN, {
 });
 
 bot.on('ready', async () => {
-	console.log('[BOT] Pronto !'.green);
+	console.log(`[BOT] Pronto com o usuário: ${bot.user.username}#${bot.user.discriminator} [${bot.user.id}]!`.green);
 	require('../Utils/functions');
 	require('../server');
+});
+
+bot.on('disconnect', () => {
+	bot.connect();
 });
 
 bot.connect();

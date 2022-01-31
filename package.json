@@ -1,7 +1,7 @@
 {
   "name": "zulybot.xyz_v2",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/start.js",
   "license": "MIT",
   "scripts": {
     "start": "node --optimize_for_size --expose-gc --gc-interval=1 .",
