@@ -6,17 +6,6 @@ const app = express();
 
 const bodyParser = require('body-parser');
 
-const MongoStore = require('connect-mongo');
-const store = MongoStore.create({
-	mongoUrl: process.env.MONGO,
-	dbName: 'sessions_zulydash',
-	ttl: 14 * 24 * 60 * 60,
-	autoRemove: 'disabled',
-	crypto: {
-		secret: process.env.SECRET
-	}
-});
-
 const passport = require('passport');
 const { Strategy } = require('passport-discord');
 
@@ -30,11 +19,14 @@ app.use(express.static(path.join(__dirname, '/Public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+const SessionStore = require('express-session-level')(session);
+const db = require('level')('./sessionDB');
+
 app.use(session({
 	secret: process.env.SECRET,
 	saveUninitialized: false,
 	resave: false,
-	store: store,
+	store: new SessionStore(db),
 }));
 
 passport.serializeUser((user, done) => {
