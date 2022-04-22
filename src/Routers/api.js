@@ -43,6 +43,17 @@ router.post('/admin/generatekey', async (req, res) => {
 	}
 });
 
+router.post('/dashboard/:id/nqn', async (req, res) => {
+	await global.bot.middleWare(req);
+	if (req.body.nqn) {
+		await global.db.set(`nqn-${req.params.id}`, true);
+	}
+	else {
+		await global.db.delete(`nqn-${req.params.id}`);
+	}
+	res.status(200).redirect(`/dashboard/${req.params.id}?type=success`);
+});
+
 router.post('/dashboard/:id/lang', async (req, res) => {
 	await global.bot.middleWare(req);
 

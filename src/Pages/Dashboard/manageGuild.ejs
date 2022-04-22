@@ -77,6 +77,25 @@
                                 </div>
                             </div>
                         </form>
+                        <form action="/api/dashboard/<%= guild.id %>/nqn" method="post">
+                            <div class="field">
+                                <label class="label">Funcionalidades</label>
+                                <div class="control">
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="nqn" value="nqn">
+                                        NQN (Not Quite Nitro)
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="field is-grouped">
+                                <div class="control">
+                                    <button type="submit" class="button is-link">Salvar</button>
+                                </div>
+                                <div class="control">
+                                    <button onclick="window.history.back()" class="button is-link is-light">Cancelar</button>
+                                </div>
+                            </div>
+                        </form>
                         </section>
                 </div>
             </div>
