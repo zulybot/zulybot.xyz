@@ -16,9 +16,8 @@
     "eris": "^0.16.1",
     "express": "^4.17.2",
     "express-session": "^1.17.2",
-    "express-session-level": "^1.0.0",
     "forever": "^4.0.3",
-    "level": "^7.0.1",
+    "memorystore": "^1.6.7",
     "mongoose": "^6.1.8",
     "os-utils": "^0.0.14",
     "passport": "^0.5.2",
@@ -26,6 +25,7 @@
     "path": "^0.12.7"
   },
   "devDependencies": {
-    "eslint": "^8.8.0"
+    "eslint": "^8.8.0",
+    "tailwindcss": "^3.0.24"
   }
 }

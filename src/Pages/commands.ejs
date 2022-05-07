@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <%- include('./Partials/head'); %>
+</head>
+<nav>
+    <%- include('./Partials/navbar'); %>
+</nav>
+
+<body>
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title is-1">
+                Comandos da <%= bot.user.username %>
+            </h1>
+            <h2 class="subtitle is-4">
+                Atualmente eu possuo <strong><%= commands.length %></strong> comandos diferentes.
+            </h2>
+            <center>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nome do comando</th>
+                            <th>Descrição</th>
+                            <th>Categoria</th>
+                        </tr>
+                    </thead>
+                    <% for (const command of commands) { %>
+                    <tbody>
+                        <tr>
+                            <th>/<%= command.pt.nome %></th>
+                            <td><%= command.pt.desc %></td>
+                            <td><%= command.pt.categoria %></td>
+                        </tr>
+                    </tbody>
+                    <% } %>
+                </table>
+            </center>
+        </div>
+    </div>
+    <footer class="footer">
+        <%- include('./Partials/footer'); %>
+    </footer>
+</body>
+
+</html>

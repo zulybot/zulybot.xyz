@@ -4,6 +4,10 @@ html {
     background-color: #f3f3f3f6;
 }
 
+tr:hover {
+    background-color:rgba(0,0,0,.075)
+}
+
 .select {
     border:0;
     background-color: #FFC0CB;

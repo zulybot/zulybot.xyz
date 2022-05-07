@@ -3,6 +3,13 @@ const express = require('express');
 const passport = require('passport');
 const router = express.Router();
 
+router.get('/commands', async (req, res) => {
+	const { get } = require('axios');
+	await get(process.env.COMMANDS).then(async (resp) => {
+		res.json(resp.data);
+	});
+});
+
 router.get('/user/:id', async (req, res) => {
 	await global.bot.middleWare(req);
 

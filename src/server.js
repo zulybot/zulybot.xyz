@@ -19,19 +19,22 @@ app.use(express.static(path.join(__dirname, '/Public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const SessionStore = require('express-session-level')(session);
-const db = require('level')('./sessionDB');
+const MemoryStore = require('memorystore')(session);
 
 app.use(session({
+	cookie: { maxAge: 604800000 },
 	secret: process.env.SECRET,
-	saveUninitialized: false,
-	resave: false,
-	store: new SessionStore(db),
+	store: new MemoryStore({
+		checkPeriod: 604800000
+	  }),
+	resave: true,
+	saveUninitialized: true
 }));
 
 passport.serializeUser((user, done) => {
 	done(null, user);
 });
+
 passport.deserializeUser((obj, done) => {
 	done(null, obj);
 });

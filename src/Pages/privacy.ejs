@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <%- include('./Partials/head'); %>
+</head>
+<nav>
+    <%- include('./Partials/navbar'); %>
+</nav>
+
+<body>
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title is-1">
+                <strong>Políticas de Privacidade</strong> da <%= bot.user.username %>
+            </h1>
+            <h2 class="subtitle is-4">
+                Esta Pagina é destinada para escrever nossas políticas de procedimentos sobre a coleta, uso e divulgação de Suas informações, e como protegemos elas, enquando você faz uso de vosso bot.
+            </h2>
+            <h2 class="text is-5">
+                <strong>Ao fazer uso da <%= bot.user.username%> você nos autoriza a coleta de:</strong>
+            </h2>
+                <br>
+                <center>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Coleção</th>
+                                <th>Proteção/Motivos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>ID, informações de usuários/servidores e outros.</th>
+                                <td>Informações interações são salvas para fim de <strong>controle</strong> de usuários, caso alguém execute um comando indevido, tente travar o bot e afins, sendo utilizado para banir o mesmo do bot, essas informações ficam salvas em um grupo privado com os desenvolvedores do bot, aonde apenas: <strong>ADG#3639</strong>, <strong>Bae.#7500</strong> & <strong>Shut!#5230</strong> tem acesso.<br>ID de cargo, mensagens, e emoji ficam salvas no banco de dados para que o bot consiga reconhecer o reaction role e atribuir o cargo ao membro.<br><strong>Por questão de proteção</strong> também fazemos coleta de <strong>e-mails</strong> de usuários, para que possa verificar contas alternativas e afins, as mesmas ficam salvas em banco de dados, só sendo assesivel pelo dono (<strong>ADG#3639</strong>)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </center>
+            </h2>
+        </div>
+    </div>
+    <footer class="footer">
+        <%- include('./Partials/footer'); %>
+    </footer>
+</body>
+
+</html>
