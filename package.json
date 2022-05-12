@@ -1,6 +1,6 @@
 {
-  "name": "zulybot.xyz_v2",
-  "version": "1.0.0",
+  "name": "zulybot.xyz",
+  "version": "3.8",
   "main": "src/start.js",
   "license": "MIT",
   "scripts": {
