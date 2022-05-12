@@ -16,7 +16,7 @@ router.get('/cdn/hug', async (req, res) => {
 	const files = fs.readdirSync(path.join(__dirname, '../Public/cdn/hug'));
 	const file = files[Math.floor(Math.random() * files.length)];
 	res.json({
-		url: `${req.protocol}://` + req.headers.host + '/cdn/hug/' + file
+		url: 'https://zulybot.xyz/cdn/hug/' + file
 	});
 });
 
