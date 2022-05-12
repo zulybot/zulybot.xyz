@@ -71,6 +71,23 @@ app.use('/api', require('./Routers/api'));
 app.use('/dashboard', require('./Routers/dashboard'));
 require('./redirects')(app);
 
+app.post('*', async (req, res) => {
+	res.sendStatus(404);
+});
+
+app.get('*', async (req, res) => {
+	await global.bot.middleWare(req);
+
+	const guilds = global.bot.guilds;
+	const users = global.bot.guilds.reduce((acc, guild) => acc + guild.memberCount, 0);
+	res.render('404', {
+		bot: global.bot,
+		guilds: guilds,
+		totalUsers: users.toLocaleString(),
+		user: req.session.passport?.user || null,
+	});
+});
+
 app.listen(PORT, () => {
 	console.log('[SERVER] Pronto na porta '.green + `${PORT}`.blue + ' !'.green);
 });
