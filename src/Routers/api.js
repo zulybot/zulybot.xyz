@@ -20,6 +20,26 @@ router.get('/cdn/hug', async (req, res) => {
 	});
 });
 
+router.get('/cdn/slap', async (req, res) => {
+	const fs = require('fs');
+	const path = require('path');
+	const files = fs.readdirSync(path.join(__dirname, '../Public/cdn/slap'));
+	const file = files[Math.floor(Math.random() * files.length)];
+	res.json({
+		url: 'https://zulybot.xyz/cdn/slap/' + file
+	});
+});
+
+router.get('/cdn/kiss', async (req, res) => {
+	const fs = require('fs');
+	const path = require('path');
+	const files = fs.readdirSync(path.join(__dirname, '../Public/cdn/kiss'));
+	const file = files[Math.floor(Math.random() * files.length)];
+	res.json({
+		url: 'https://zulybot.xyz/cdn/kiss/' + file
+	});
+});
+
 router.get('/user/:id', async (req, res) => {
 	await global.bot.middleWare(req);
 
