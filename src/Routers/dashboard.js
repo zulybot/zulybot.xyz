@@ -54,11 +54,11 @@ router.get('/', async (req, res) => {
 		}
 	});
 
-	const userRyos = await global.db.get(`ryos-${req.session.passport.user.id}`) || 0;
+	const userRyos = await global.db.get(`money-${req.session.passport.user.id}`) || 0;
 	res.render('Dashboard/@me', {
 		bot: global.bot,
 		guilds: guildArray,
-		userMoney: Number(userRyos).toLocaleString(),
+		userMoney: Number(userRyos).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }),
 		user: req.session.passport?.user || null,
 	});
 });

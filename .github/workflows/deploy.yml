@@ -7,7 +7,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: 🚀 Build & Deploy [Zuly]
+      - name: 🚀 Build & Deploy [Website]
         uses: appleboy/ssh-action@v0.1.2
 
         with:
