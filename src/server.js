@@ -45,7 +45,7 @@ const prompt = 'none';
 passport.use(new Strategy({
 	clientID: process.env.CLIENT_ID,
 	clientSecret: process.env.CLIENT_SECRET,
-	callbackURL: '/api/callback',
+	callbackURL: 'https://zulybot.xyz/api/callback',
 	prompt: prompt,
 	scope: scopes,
 }, function(accessToken, refreshToken, profile, done) {

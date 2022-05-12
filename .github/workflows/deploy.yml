@@ -26,5 +26,5 @@ jobs:
             rm -rf node_modules
             yarn install
             yarn lint
-            pm2 start src/zuly.js --node-args="--use-strict --harmony --max_old_space_size=512 --optimize_for_size --expose-gc --gc-interval=100" --name zulysite
+            pm2 start src/start.js --node-args="--use-strict --harmony --max_old_space_size=512 --optimize_for_size --expose-gc --gc-interval=100" --name zulysite
             exit
