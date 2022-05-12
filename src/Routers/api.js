@@ -10,6 +10,16 @@ router.get('/commands', async (req, res) => {
 	});
 });
 
+router.get('/cdn/hug', async (req, res) => {
+	const fs = require('fs');
+	const path = require('path');
+	const files = fs.readdirSync(path.join(__dirname, '../Public/cdn/hug'));
+	const file = files[Math.floor(Math.random() * files.length)];
+	res.json({
+		url: `${req.protocol}://` + req.headers.host + '/cdn/hug/' + file
+	});
+});
+
 router.get('/user/:id', async (req, res) => {
 	await global.bot.middleWare(req);
 

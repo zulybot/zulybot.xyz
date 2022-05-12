@@ -9,7 +9,7 @@ async function middleWare (req) {
 				fields: [
 					{
 						name: '**IP:**',
-						value: `${req.ip}` || 0,
+						value: `${req.socket.remoteAddress}` || 0,
 					},
 					{
 						name: '**User-Agent:**',
