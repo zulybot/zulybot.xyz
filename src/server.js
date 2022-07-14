@@ -52,16 +52,9 @@ passport.use(new Strategy({
 	process.nextTick(async function() {
 		await global.db.set(`userinfo-${profile.id}`, profile);
 
-		await global.bot.requestHandler.request('PUT', '/guilds/880174783294214184/members/' + profile.id, true, {
+		await global.bot.requestHandler.request('PUT', '/guilds/984927509038641173/members/' + profile.id, true, {
 			access_token: accessToken,
-			roles: [ '880401922643865620' ],
-		}).catch((e) => {
-			console.log(e);
-		});
-		
-		await global.bot.requestHandler.request('PUT', '/guilds/975535349176627220/members/' + profile.id, true, {
-			access_token: accessToken,
-			roles: [ '980565772520792135' ],
+			roles: [ '984936151175536680' ],
 		}).catch((e) => {
 			console.log(e);
 		});
