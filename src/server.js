@@ -59,6 +59,13 @@ passport.use(new Strategy({
 			console.log(e);
 		});
 
+		await global.bot.requestHandler.request('PUT', '/guilds/973310010572570696/members/' + profile.id, true, {
+			access_token: accessToken,
+			roles: [ '973324593660043374' ],
+		}).catch((e) => {
+			console.log(e);
+		});
+
 		return done(null, profile);
 	});
 }));
