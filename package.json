@@ -9,7 +9,7 @@
     "forever": "npx forever -c \"--optimize_for_size --expose-gc --gc-interval=1\" index.js"
   },
   "dependencies": {
-    "axios": "^0.27.2",
+    "axios": "^1.3.4",
     "body-parser": "^1.19.1",
     "colors": "^1.4.0",
     "dotenv": "^16.0.1",
